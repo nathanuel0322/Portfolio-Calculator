@@ -1,4 +1,5 @@
 import "./App.css";
+import { getHistoricalDataBySymbol, getAllSymbols } from "./utils/WTDApi";
 import { PortfolioForm } from "./components/PortfolioForm";
 
 function App() {
