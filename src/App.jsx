@@ -1,7 +1,7 @@
 import "./App.css";
 import { getHistoricalDataBySymbol, getAllSymbols } from "./utils/WTDApi";
 
-function App() {
+async function App() {
   return <div>Portfolio Calculator</div>;
 }
 
