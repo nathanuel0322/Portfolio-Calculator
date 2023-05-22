@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&family=Montserrat:wght@600&display=swap');
+
+#homeouterdiv {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 6vw;
+  color: white;
+  text-align: center;
+  min-height: 99vh;
+}
+#outertyped {
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.blinkingorange, .typed-cursor {
+  color: rgb(255, 139, 0);
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+@keyframes blinkingOrange{
+  0%{     color: rgb(255, 139, 0)}
+  49%{    color:rgb(255, 139, 0)}
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: rgb(255, 139, 0)}
+}
+#questouterdiv > span > :first-child {
+  border: 15px solid red !important;
+}
+#questouterdiv > span > :last-child {
+  border: 15px solid blue !important;
+}
