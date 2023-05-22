@@ -32,7 +32,7 @@ export const getHistoricalDataBySymbol = async (
 
 export const getAllSymbols = async () => {
   const { data } = await axios.get(BASE_URL + `tickers?access_key=${API_KEY}`);
-  const res = data.map((symbol) => {
+  const res = data.data.map((symbol) => {
     return {
       name: symbol.name,
       symbol: symbol.symbol,
