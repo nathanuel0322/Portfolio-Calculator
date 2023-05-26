@@ -9,6 +9,7 @@ import { db } from "../firebase";
 import { addDoc, collection, doc, serverTimestamp } from "@firebase/firestore";
 import "../assets/css/home.css";
 import { getHistoricalDataBySymbol } from "../utils/WTDApi";
+import { data } from "../data/stockInfo";
 
 export default function Home() {
   const [formcomplete, setFormComplete] = useState(null);
@@ -151,6 +152,7 @@ export default function Home() {
       ) : (
         <PortfolioForm setFormData={setFormData} />
       )}
+       <Results formData={data} />
     </div>
   );
 }

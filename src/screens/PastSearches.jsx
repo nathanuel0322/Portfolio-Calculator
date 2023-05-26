@@ -5,7 +5,6 @@ import { db } from '../firebase.js';
 import { addDoc, doc, collection, getDocs, serverTimestamp } from '@firebase/firestore';
 import '../assets/css/pastsearches.css';
 import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
-import tinycolor from 'tinycolor2';
 
 export default function PastSearches() {
     const { user, logout } = useContext(AuthContext);
@@ -86,15 +85,15 @@ export default function PastSearches() {
                                             </text>
                                         );
                                     }}   
-                                    outerRadius={37.5}
+                                    outerRadius={40}
                                     fill="#8884d8"
                                     dataKey="value"
                                 >
                                     {piedata.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={tinycolor('#' + Math.floor(Math.random() * 16777215).toString(16)).darken(20).toString()} />
+                                        <Cell key={`cell-${index}`} fill={`hsl(${Math.random()*360}, 50%, 60%) `}/>
                                     ))}
                                 </Pie>
-                                <Legend verticalAlign="bottom" height={27} />
+                                <Legend verticalAlign="bottom" height={40} />
                                 <Tooltip />
                             </PieChart>
                         </div>
@@ -104,3 +103,6 @@ export default function PastSearches() {
         </div>
     )
 }
+
+
+// tinycolor('#' + Math.floor(Math.random() * 16777215).toString(16)).darken(20).toString()

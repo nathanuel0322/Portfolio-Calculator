@@ -8,7 +8,7 @@
     padding: 0.25rem 1rem;
 }
 #portfolioform input {
-    border-radius: 10px;
+    border-radius: 8px;
     text-align: center;
 }
 .percents {
@@ -18,8 +18,10 @@
     border-radius: 4px !important;
 }
 #datepick {
-    background: linear-gradient(to right, orange, #3017cd) !important;
+    background: #312e81 !important;
+
     color: white !important;
+
 }
 #addstocks {
     font-weight: 700;

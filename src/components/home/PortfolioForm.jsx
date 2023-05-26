@@ -96,11 +96,11 @@ export const PortfolioForm = ({ setFormData }) => {
         )}
       </ul>
       {!addStock && <input type="text" className='mb-3' value={inputValue} onChange={handleTicker} />}  
-      <ul className="max-h-96 w-80	overflow-y-scroll  bg-purple-400 rounded-sm ">
+      <ul className="max-h-96 w-80	overflow-y-scroll drop-shadow-md rounded-m p-2">
         {/* add a check box */}
         {inputValue.length !== 0 &&
           suggestedValues.map((value, index) => 
-            <li className='text-purple-600 bg-slate-200 text-m m-1 text-left p-1 ' key={index}>
+            <li className='text-indigo-600 bg-blue-50 text-m m-2 text-left p-1 rounded-md' key={index}>
               <label className='flex justify-between font-medium items-center'>
                 {value.symbol}
                 <input type="checkbox" className=' w-7 h-7' checked={selectedOptions.includes(value.symbol)}
