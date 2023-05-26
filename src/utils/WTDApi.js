@@ -3,7 +3,10 @@ import axios from "axios";
 // pranav's api key
 // const API_KEY = "SV2RAVRTE4ZMY20U";
 // nathanuel's api key
-const API_KEY = "JDF6J21P8RLPIYFY";
+//const API_KEY = "JDF6J21P8RLPIYFY";
+
+//New API - Camilo
+const API_KEY = "CH20YI2Q7L8SM6Y4";
 const BASE_URL = "https://www.alphavantage.co/query?apikey=" + API_KEY;
 
 export const getHistoricalDataBySymbol = async (symbol) => {
@@ -12,8 +15,6 @@ export const getHistoricalDataBySymbol = async (symbol) => {
       `&function=TIME_SERIES_DAILY_ADJUSTED&outputsize=full&symbol=${symbol}`
   );
 
-  console.log("data is:", data);
-  
   // if data is an object, return that object, if else return an empty object
   // if the object has a key named "Time Series (Daily)", return that object, if else return an empty object
   if (data.hasOwnProperty("Time Series (Daily)")) {
