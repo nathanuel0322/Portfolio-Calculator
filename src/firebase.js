@@ -13,12 +13,12 @@ import {ref, getStorage, uploadBytes, } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBMtnQaBLDyA_XlBb2LIINGmQ1PixxplUw",
-    authDomain: "portfolio-calculator-2c0bc.firebaseapp.com",
-    projectId: "portfolio-calculator-2c0bc",
-    storageBucket: "portfolio-calculator-2c0bc.appspot.com",
-    messagingSenderId: "362546081709",
-    appId: "1:362546081709:web:c68af94570384ac8883b24"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID
 };
 
 // Initialize Firebase
@@ -28,6 +28,3 @@ export const Firebase = initializeApp(firebaseConfig);
 export const auth = getAuth(Firebase);
 
 export const db = getFirestore(Firebase);
-// getDoc(doc(firestore, "Businesses", "BizData"))
-// // .then is genuinely the most essential thing here as it threw me off for hours
-//   .then(result => Globals.businesses=result.data());
