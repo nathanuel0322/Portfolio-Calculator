@@ -1,8 +1,8 @@
-import React, {useContext, useState, useEffect} from 'react';
-import {onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../../firebase.js';
+import React, { useContext, useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase.js';
 import { AuthContext } from '../../App.jsx';
-import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from '../../screens/Home.jsx';
 import SignupScreen from '../../screens/SignUpScreen.jsx';
