@@ -25,7 +25,10 @@ export default function PastSearches() {
       );
 
       // maps the data from each document into an array
-      const newData = querySnapshot.docs.map((doc) => doc.data());
+      const newData = querySnapshot.docs.map((doc) => doc.data()).sort((a, b) => {
+        // sort by timestamp, most recent first
+        return b.timestamp.seconds - a.timestamp.seconds;
+      });
 
       // filters out any duplicates
       setFoundPast((prevState) => {
@@ -160,7 +163,6 @@ export default function PastSearches() {
         )}
         {foundpast.length > 0 &&
           foundpast.map((val, index) => {
-            console.log("value at index is: ", val);
             const piedata = val.allocation.map((outeralloc) => ({
               name: outeralloc.symbol,
               value: outeralloc.weight,

@@ -47,6 +47,7 @@
   align-items: flex-end;
   top: 1vh;
   right: 3vh;
+  z-index: 999;
 }
 .toprightbuttons > * {
   color: white !important;

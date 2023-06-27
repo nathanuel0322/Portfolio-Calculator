@@ -71,6 +71,7 @@ export default function Results() {
     
     setTotalProfit(getTotalProfit());
     setPieChartData(getPieChartData());
+    console.log("effectdata is: ", effectdata);
     setData(effectdata);
   }, []);
 

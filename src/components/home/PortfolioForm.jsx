@@ -193,7 +193,7 @@ export const PortfolioForm = ({ setFormData }) => {
         value={dataobj.balance}
         onChange={(event) => setDataobj({ ...dataobj, balance: parseFloat(event.target.value) })}
       />
-      <ul id="optionsul" className="flex max-w-full">
+      <ul id="optionsul" className="flex flex-col max-w-full">
         {selectedOptions.map((stock) => (
           <li
             id="optionsli"

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProfitsBoard = ({ data }) => {
+export default function ProfitsBoard ({ data }) {
   return (
     <div className="flex flex-col items-center justify-center bg-blue-50 shadow-md rounded-lg p-4 gap-y-4">
       {Object.entries(data).map(([key, value]) => {
@@ -15,7 +15,7 @@ const ProfitsBoard = ({ data }) => {
               Number of shares: {value.sharesondayone.toFixed(2)}
             </p>
             <p className="text-base">
-              Today's Profit: <span style={{color: parseFloat(tempnum) >= 0 ? 'green' : 'red'}}>${tempnum}</span>
+              Today's Profit: <span style={{color: parseFloat(tempnum) >= 0 ? 'green' : 'red'}}>${parseFloat(tempnum - value.initialBalance).toFixed(2)}</span>
             </p>
           </div>
         );
@@ -23,5 +23,3 @@ const ProfitsBoard = ({ data }) => {
     </div>
   );
 };
-
-export default ProfitsBoard;
