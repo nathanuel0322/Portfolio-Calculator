@@ -21,7 +21,12 @@
     text-align: start;
     font-size: 1.125rem;
     line-height: 1.5;
-    font-weight: 600;}
+    font-weight: 600;
+    transition: all .3s;
+}
+.pastsearchesdiv > div:hover {
+    background-color: bisque;
+}
 .pastsearchesdiv > div::before {
     content: '';
     position: absolute;

@@ -51,14 +51,9 @@ export default function PastSearches() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log("foundpast is: ", foundpast);
-  }, [foundpast]);
-
   const displayPastDataResults = (startDate, endDate, balance, allocation) => {
     processData(startDate, endDate, balance, allocation).then((res) => {
       if (res) {
-        console.log(res);
         navigate("/results", { state: { filteredRange: res } });
       }
     });
@@ -67,7 +62,7 @@ export default function PastSearches() {
   const processData = async (startDate, endDate, balance, allocation) => {
     let dataResults = {};
     await Promise.all(
-      allocation.map(async (alloc, index) => {
+      allocation.map(async (alloc) => {
         const allocBalance = balance * (alloc.weight / 100);
         const data = await getHistoricalDataBySymbol(alloc.symbol);
         // if data holds a key titled "Note", then there was an error, and alert to user "API is exhausted, please try again in a minute"
@@ -92,8 +87,6 @@ export default function PastSearches() {
               adjusted_close: parseFloat(newdate[1]["5. adjusted close"]),
             };
           });
-
-          console.log("RES", result);
 
           if (result) {
             if (!dataResults[alloc.symbol]) {
@@ -124,11 +117,7 @@ export default function PastSearches() {
   return (
     <div>
       <div id="buttondiv" className={isLaptop ? "toprightbuttons" : "flex flex-row justify-between items-center"}>
-        <button
-          id="pastsearchesbutton"
-          className={`buttons ${isLaptop ? "" : "mt-0"}`}
-          onClick={() => navigate("/")}
-        >
+        <button id="pastsearchesbutton" className={`buttons ${isLaptop ? "" : "mt-0"}`} onClick={() => navigate("/")}>
           Back to Home
         </button>
         <button id="signoutbutton" className={`buttons ${isLaptop ? "" : "mt-0"}`} onClick={() => logout()}>
@@ -137,20 +126,11 @@ export default function PastSearches() {
       </div>
       <h1>
         Past{" "}
-        <span
-          id="searchesspan"
-          className={styles["searchesspan"] + " relative"}
-        >
+        <span id="searchesspan" className={styles["searchesspan"] + " relative"}>
           Searches
         </span>
       </h1>
-      <div
-        id="pastsearchesdiv"
-        className={
-          styles["pastsearchesdiv"] +
-          " flex flex-col items-center justify-center relative"
-        }
-      >
+      <div id="pastsearchesdiv" className={styles["pastsearchesdiv"] + " flex flex-col items-center justify-center relative"}>
         <h1 className="text-2xl">
           Click on any of your past queries to look at the results again
         </h1>
@@ -175,9 +155,7 @@ export default function PastSearches() {
                   <p>
                     From{" "}
                     {new Date(val.start).toLocaleDateString(undefined, {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
+                      year: "numeric", month: "long", day: "numeric",
                     })}{" "}
                     to{" "}
                     {new Date(val.finish).toLocaleDateString(undefined, {

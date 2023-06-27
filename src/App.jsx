@@ -1,19 +1,16 @@
 import React, { createContext, useState } from "react";
 import Routing from "./components/global/Routing";
 import { ToastContainer, toast } from "react-toastify";
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, } from "firebase/auth";
 import { auth } from "./firebase.js";
 import "./App.css";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./assets/css/home.css";
-import "@fontsource/gayathri/100.css";
-import "@fontsource/gayathri/400.css";
-import "@fontsource/gayathri/700.css";
+import "@fontsource/manrope/200.css";
+import "@fontsource/manrope/300.css";
+import "@fontsource/manrope/400.css";
+import "@fontsource/manrope/500.css";
 
 export const AuthContext = createContext();
 

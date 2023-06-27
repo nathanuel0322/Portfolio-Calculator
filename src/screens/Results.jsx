@@ -71,7 +71,6 @@ export default function Results() {
     
     setTotalProfit(getTotalProfit());
     setPieChartData(getPieChartData());
-    console.log("effectdata is: ", effectdata);
     setData(effectdata);
   }, []);
 
@@ -91,7 +90,9 @@ export default function Results() {
   const getTotalProfit = () => {
     let totalProfit = 0.0;
     Object.entries(givendata).forEach(([key, val]) => {
-      totalProfit += (Math.round(val.sharesondayone * val.data.slice(-1)[0].close * 100) / 100);
+      return (
+        totalProfit += (Math.round(val.sharesondayone * val.data.slice(-1)[0].close * 100) / 100) - val.initialBalance
+      );
     });
     
     return totalProfit.toFixed(2);
@@ -103,17 +104,13 @@ export default function Results() {
   return (
     <div id="resultsouterdiv" className="mt-4 w-full">
       <div className="toprightbuttons">
-        <button
-          id="pastsearchesbutton"
-          className="buttons"
-          onClick={() => navigate("/")}
-        >
+        <button id="pastsearchesbutton" className="buttons" onClick={() => navigate("/")}>
           Back to Home
         </button>
       </div>
       <h1 className="text-white">Results</h1>
       {totalprofit !== 0.00 && 
-        <h1 className="text-3xl my-4 bg-blue-50 shadow-md rounded-lg px-6 pt-5 py-3">Total Profit: &nbsp;
+        <h1 className="text-3xl my-4 bg-blue-50 shadow-md rounded-lg px-6 py-3">Total Profit: &nbsp;
           <span style={{color: parseFloat(totalprofit) >= 0 ? 'green' : 'red'}}>
           ${parseFloat(totalprofit).toLocaleString(undefined, {
             minimumFractionDigits: 2,
@@ -212,41 +209,36 @@ export default function Results() {
           </ResponsiveContainer>
         ) : (
           <LineChart
-            width={700}
+            width={800}
             height={400}
             data={data}
-            margin={{
-              top: 20,
-              right: 50,
-              left: 40,
-              bottom: 5,
-            }}
+            margin={{ top: 20, right: 50, left: 100, bottom: 5, }}
             className="bg-blue-50 shadow-md rounded-lg"
           >
             <XAxis dataKey="date" tick={{ fill: 'black' }} />
             <YAxis tick={{ fill: 'black' }}>
-            <Label
-              value="Prices"
-              position="insideLeft"
-              angle={0}
-              style={{ textAnchor: 'middle', fill: 'black' }}
-              offset={-10}
-            />
+              <Label
+                value="Prices"
+                position="insideLeft"
+                angle={0}
+                style={{ textAnchor: 'middle', fill: 'black' }}
+                offset={-50}
+              />
             </YAxis>
-            <Tooltip formatter={(value) => `$${value}`} />
+            <Tooltip formatter={(value) => `$${value.toLocaleString()}`} />
             <Legend height={24} />
-              {/* Render Line components for each stock dynamically */}
-              {Object.keys(data[0])
-                .filter((key) => key !== 'date')
-                .map((entry, index) => (
-                  <Line
-                    key={index}
-                    type="monotone"
-                    dataKey={entry}
-                    stroke={`hsl(${Math.random() * 360}, 50%, 60%)`}
-                    activeDot={{ r: 8 }}
-                  />
-              ))}
+            {/* Render Line components for each stock dynamically */}
+            {Object.keys(data[0])
+              .filter((key) => key !== 'date')
+              .map((entry, index) => (
+                <Line
+                  key={index}
+                  type="monotone"
+                  dataKey={entry}
+                  stroke={`hsl(${Math.random() * 360}, 50%, 60%)`}
+                  activeDot={{ r: 8 }}
+                />
+            ))}
           </LineChart>
         )
       )}
