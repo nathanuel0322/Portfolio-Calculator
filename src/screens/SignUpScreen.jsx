@@ -13,12 +13,12 @@ export default function SignupScreen() {
   const { register } = useContext(AuthContext);
 
   return (
-    <div className="authdiv">
+    <div className="authdiv flex flex-col items-center justify-center">
       <p className="authtitle lg:text-[5rem] md:text-[4rem] text-[2.5rem]">NCP's Portfolio Calculator</p>
       <p id="createacc" className="text-white">
         Create an Account
       </p>
-      <form className="authform">
+      <form className="flex flex-col items-center justify-center">
         <input
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
@@ -31,14 +31,10 @@ export default function SignupScreen() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <input
-          type="password"
+        <input type="password" placeholder="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="Confirm Password"
         />
-        <input
-          type="button"
-          className="buttons"
+        <input type="button" className="buttons !px-4 py-[.375rem]"
           onClick={() => {
             if (password !== confirmPassword) {
               toast.error("Passwords do not match!", {
@@ -53,7 +49,7 @@ export default function SignupScreen() {
         />
       </form>
 
-      <p className="mt-4">Already have an account?</p>
+      <p className="mt-4 font-medium">Already have an account?</p>
       <button
         id="signinbutton"
         className="buttons"

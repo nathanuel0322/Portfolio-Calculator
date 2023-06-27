@@ -1,34 +1,24 @@
 .authdiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: calc(100vh - 4rem);
-    /* background: radial-gradient(50% 50% at 50% 50%, rgba(0, 136, 188, 0.65) 0%, rgba(0, 136, 188, 0) 100%); */
 }
 .authtitle {
     background: linear-gradient(to right, white, rgb(0, 255, 174));
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.authform {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 #createacc {
     font-size: 28px;
     font-weight: 500;
 }
-.authdiv input {
+.authdiv input:not([type="button"]) {
     margin-top: 1rem;
-    padding-inline: 2rem;
+    padding-inline: 1rem;
     border-radius: 10px;
     color: white;
     font-size: 18px;
-   
-    padding-top: 0.5rem;
+    padding-block: 0.5vh;
+    width: 30vw;
+    text-align: center;
 }
 .authdiv input::placeholder {
     color: white;
