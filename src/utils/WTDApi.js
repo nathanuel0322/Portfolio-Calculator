@@ -14,7 +14,7 @@ export const getHistoricalDataBySymbol = async (symbol) => {
     isFetchingData = true;
     console.log("starting getHistoricalDataBySymbol");
     const { data } = await axios.get(
-      BASE_URL + `&function=TIME_SERIES_DAILY_ADJUSTED&outputsize=full&symbol=${symbol}`
+      BASE_URL + `&function=TIME_SERIES_DAILY&outputsize=full&symbol=${symbol}`
     );
   
     if (data.hasOwnProperty("Time Series (Daily)")) {

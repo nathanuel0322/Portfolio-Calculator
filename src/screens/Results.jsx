@@ -55,7 +55,7 @@ export default function Results() {
         effectdata.push(...stockData.filter((val) => val !== undefined));
       }
     }
-    
+      
     // iterate through the effectdata, and if there is no value for any of the stocks at that date,
     // just add the key as the stockname, and the value as 0
     for (let i = 0; i < effectdata.length; i++) {
@@ -230,15 +230,17 @@ export default function Results() {
             {/* Render Line components for each stock dynamically */}
             {Object.keys(data[0])
               .filter((key) => key !== 'date')
-              .map((entry, index) => (
-                <Line
-                  key={index}
-                  type="monotone"
-                  dataKey={entry}
-                  stroke={`hsl(${Math.random() * 360}, 50%, 60%)`}
-                  activeDot={{ r: 8 }}
-                />
-            ))}
+              .map((entry, index) => {
+                return (
+                  <Line
+                    key={index}
+                    type="monotone"
+                    dataKey={entry}
+                    stroke={`hsl(${Math.random() * 360}, 50%, 60%)`}
+                    activeDot={{ r: 8 }}
+                  />
+                )
+            })}
           </LineChart>
         )
       )}

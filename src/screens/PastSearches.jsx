@@ -84,11 +84,11 @@ export default function PastSearches() {
             return {
               date: newdate[0],
               close: parseFloat(newdate[1]["4. close"]),
-              adjusted_close: parseFloat(newdate[1]["5. adjusted close"]),
             };
           });
 
           if (result) {
+            console.log("result:", result)
             if (!dataResults[alloc.symbol]) {
               dataResults[alloc.symbol] = {
                 initialBalance: parseFloat(allocBalance.toFixed(2)),

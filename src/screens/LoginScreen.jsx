@@ -14,12 +14,12 @@ export default function LoginScreen() {
   const { login } = useContext(AuthContext);
 
   return (
-    <div className="authdiv">
+    <div className="authdiv flex flex-col items-center">
     <p className="authtitle lg:text-[5rem] md:text-[4rem] text-[2.5rem]">NCP's Portfolio Calculator</p>
       <p id="createacc" className="text-white">
         Login
       </p>
-      <div id="loginform" className="authform">
+      <div id="loginform" className="authform flex flex-col items-center">
         <input
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
