@@ -13,7 +13,7 @@ export default function SignupScreen() {
   const { register } = useContext(AuthContext);
 
   return (
-    <div className="authdiv flex flex-col items-center justify-center">
+    <div className="authdiv">
       <p className="authtitle lg:text-[5rem] md:text-[4rem] text-[2.5rem]">NCP's Portfolio Calculator</p>
       <p id="createacc" className="text-white">
         Create an Account
