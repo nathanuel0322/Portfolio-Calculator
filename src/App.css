@@ -1,54 +1,59 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa);
 }
-.gradientText{
-  font-weight: 800;
-  background: -webkit-linear-gradient(180deg,#00d2ff, #3a47d5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.gradientText {
+    font-weight: 800;
+    background: -webkit-linear-gradient(180deg, #00d2ff, #3a47d5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 @media (max-width: 727px) {
-  #buttondiv {
-    margin-bottom: 5vh;
-  }
-  #signoutbutton {
-    background: linear-gradient(to left, #1CB5E0 0%, #000851 100%) !important;
-  }
+    #buttondiv {
+        margin-bottom: 5vh;
+    }
+    #signoutbutton {
+        background: linear-gradient(to left, #1cb5e0 0%, #000851 100%) !important;
+    }
 }
+
 .buttons {
-  margin-top: 1rem;
-  font-size: 18px;
-  font-weight: 600;
-  padding-inline: 1rem;
-  padding-block: 0.375rem;
-  border-radius: 10px !important;
-  transition: all 0.4s ease-in-out;
-  color: white;
-  background: linear-gradient(to right, #1CB5E0 0%, #000851 100%) !important;
-  border: none;
-  cursor: pointer;
+    margin-top: 1rem;
+    font-size: 18px;
+    font-weight: 600;
+    padding-inline: 1rem;
+    padding-block: 0.375rem;
+    border-radius: 10px !important;
+    transition: all 0.4s ease-in-out;
+    color: white;
+    background: linear-gradient(to right, #1cb5e0 0%, #000851 100%) !important;
+    border: none;
+    cursor: pointer;
 }
+
+@media (max-width: 350px) {
+    .buttons {
+        font-size: 16px;
+    }
+}
+
 .buttons:hover {
-  background: linear-gradient(to right, red, orange) !important;
+    background: linear-gradient(to right, red, orange) !important;
 }
 #pastsearchesdiv > p {
-  text-shadow: 10px 10px 15px #111111;
+    text-shadow: 10px 10px 15px #111111;
 }
 span.recharts-legend-item-text {
-  font-size: 82.5%;
+    font-size: 82.5%;
 }
